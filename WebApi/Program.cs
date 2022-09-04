@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using WebApi.Data;
+using WebApi.Models;
 using WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -43,6 +44,7 @@ builder.Services.AddAuthentication(auth =>
 });
 
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddTransient<IEmployeeRep, SqlEmployeeRep>();
 
 
 
